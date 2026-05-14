@@ -1,0 +1,104 @@
+likelihood:
+  # Planck
+  planck_NPIPE_highl_CamSpec.TTTEEE.TTTEEE: null
+  planck_2018_lowl.TT: null
+  planck_2018_lowl.EE: null
+  planckpr4lensing: null
+
+  # BAO
+  bao.sdss_dr16_baoplus_elg: null
+  bao.sdss_dr16_baoplus_lrg: null
+  bao.sdss_dr16_baoplus_qso: null
+  bao.sdss_dr7_mgs: null
+  bao.sixdf_2011_bao: null
+
+  # Supernovas
+  sn.pantheon: null
+
+params:
+
+  As:
+    value: "lambda logA: 1e-10*np.exp(logA)"
+
+  logA:
+    prior:
+      min: 2.8
+      max: 3.3
+    ref:
+      dist: norm
+      loc: 3.05
+      scale: 0.01
+    proposal: 0.01
+    drop: true
+
+  ns:
+    prior:
+      min: 0.94
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.965
+      scale: 0.004
+    proposal: 0.002
+
+  ombh2:
+    prior:
+      min: 0.021
+      max: 0.024
+    ref:
+      dist: norm
+      loc: 0.0224
+      scale: 0.0001
+    proposal: 0.0001
+
+  omch2:
+    prior:
+      min: 0.11
+      max: 0.13
+    ref:
+      dist: norm
+      loc: 0.12
+      scale: 0.001
+    proposal: 0.0005
+
+  H0:
+    prior:
+      min: 64
+      max: 72
+    ref:
+      dist: norm
+      loc: 67.4
+      scale: 1.0
+    proposal: 0.5
+
+  tau:
+    prior:
+      min: 0.045
+      max: 0.075
+    ref:
+      dist: norm
+      loc: 0.054
+      scale: 0.004
+    proposal: 0.002
+
+  mnu: 0.06
+
+sampler:
+  mcmc:
+    max_samples: 150000
+    burn_in: 5000
+    learn_proposal: true
+    Rminus1_stop: 0.005
+    Rminus1_cl_stop: 0.01
+
+output: chains/lcdm_heavy_run
+force: true
+
+theory:
+  camb:
+    extra_args:
+      lens_potential_accuracy: 2
+      halofit_version: mead
+      num_massive_neutrinos: 1
+      nnu: 3.046
+      theta_H0_range: [20, 100]
