@@ -8,5 +8,5 @@ Este repositorio contiene el notebook y las cadenas MCMC obtenidas con Cobaya pa
 - archivos `.yaml`: configuración usada para la corrida
 
 ## Requisitos
-Python + Cobaya + CAMB + Healpy
+Python + Cobaya + CAMB + Healpy +
 Tener instalados los datos !cobaya-install cosmo -p /path/to/packages 
