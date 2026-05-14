@@ -9,3 +9,4 @@ Este repositorio contiene el notebook y las cadenas MCMC obtenidas con Cobaya pa
 
 ## Requisitos
 Python + Cobaya + CAMB + Healpy
+Tener instalados los datos !cobaya-install cosmo -p /path/to/packages 
